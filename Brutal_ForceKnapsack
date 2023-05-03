@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+#include <iostream>
+
+using namespace std;
+
+int getMaiorValor(int n, int p[], int v[], int c, int i){
+
+    int add_item, del_item;
+ 
+    if(i == n || c <= 0){//ultimo item ou maxima capacidade
+        return 0;
+    }
+
+
+    if(p[i] <= c){ //peso do item atual é menor ou igual a capacidade
+        add_item = getMaiorValor(n, p, v, c-p[i], i+1) + v[i];//capaciade diminiu pois item é incluido, i++ = prox item
+
+        del_item = getMaiorValor(n, p, v, c, i+1);
+
+        return max(add_item, del_item);
+
+    }else{
+        del_item = getMaiorValor(n, p, v, c, i+1);//o item é maior do que a capacidade, apenas acha o valor sem inlcluir
+        return del_item;
+    }
+}
+
+
+
+int main(void){
+
+    int n = 5;//numermo de itenss
+    int p[5] = {6,6,6,6,6};//peso dos itens
+    int v[5] = {3,4,9,2,6};//valor dos itens
+    int c  = 12;// capacidade maxima da mochila
+
+    cout << "Resultado da somatoria = " << getMaiorValor (n, p, v, c, 0) << endl;
+
+}
