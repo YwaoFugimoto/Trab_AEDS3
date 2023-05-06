@@ -80,3 +80,19 @@ int main(void){
 78 32
 40 68
 44 92
+
+    ifstream teste;
+    teste.open("teste.txt");
+    if(teste.is_open()){
+      teste >> n;
+      teste >> c;
+      cout << "Numero de itens = " << n << "Capacidade = " << c << endl;
+      i++;
+      while(!teste.eof()){
+        teste >> p[i];
+        //cout << p[i] << " ";
+        teste >> v[i];
+        //cout << v[i] << endl;
+        i++;
+      }
+    }
