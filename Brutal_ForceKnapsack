@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 #include <iostream>
+#include <ifstream>
 
 using namespace std;
 
@@ -29,11 +30,29 @@ int getMaiorValor(int n, int p[], int v[], int c, int i){
 
 int main(void){
 
-    int n = 5;//numermo de itenss
-    int p[5] = {6,6,6,6,6};//peso dos itens
-    int v[5] = {3,4,9,2,6};//valor dos itens
-    int c  = 12;// capacidade maxima da mochila
 
-    cout << "Resultado da somatoria = " << getMaiorValor (n, p, v, c, 0) << endl;
+    ifstream teste;
+    int i  = 0;
+    int n;//numermo de itenss
+    int p[100];//peso dos itens
+    int v[100];//valor dos itens
+    int c;// capacidade maxima da mochila
+    teste.open("teste.txt");
+    if(teste.is_open()){
+      teste >> n;
+      teste >> c;
+      cout << "Numero de itens = " << n << "Capacidade = " << c << endl;
+      i++;
+      while(!teste.eof()){
+        teste >> p[i];
+        teste >> v[i];
+        i++;
+      }
+      
+      
+    }
+
+
+    //cout << "Resultado da somatoria = " << getMaiorValor (n, p, v, c, 0) << endl;
 
 }
